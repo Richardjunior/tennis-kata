@@ -2,6 +2,8 @@ package projet.esiea.model;
 
 import org.junit.jupiter.api.Test;
 
+import projet.esiea.ReceiptPrinter;
+
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class SupermarketTest {
@@ -25,12 +27,17 @@ public class SupermarketTest {
 
 
         Receipt receipt = teller.checksOutArticlesFrom(cart);
+        
         Discount discountApples=new Discount(apples , "Add discount on product" , 0.995);
         Discount discountToothbrush= new Discount(toothbrush, "Add Discount toothbrush" , 0.99);
-
         receipt.addDiscount(discountApples);
         assertThat(receipt.getTotalPrice()).isEqualTo(5.96);
+
+        assertThat(new ReceiptPrinter().printReceipt(receipt)).isNotBlank();
+
+        
     }
+    
 }
 
 
