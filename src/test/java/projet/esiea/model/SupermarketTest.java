@@ -4,40 +4,78 @@ import org.junit.jupiter.api.Test;
 
 import projet.esiea.ReceiptPrinter;
 
+import java.util.Map;
+
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class SupermarketTest {
 
-    @Test
-    public void testSomething() {
-        SupermarketCatalog catalog = new FakeCatalog();
-        Product toothbrush = new Product("toothbrush", ProductUnit.Each);
-        catalog.addProduct(toothbrush, 0.99);
-        Product apples = new Product("apples", ProductUnit.Kilo);
-        catalog.addProduct(apples, 1.99);
 
-        ShoppingCart cart = new ShoppingCart();
-        cart.addItemQuantity(apples, 2.5);
-        cart.addItemQuantity(toothbrush, 3);
+	public Receipt receiptToTest() {
+		SupermarketCatalog catalog = new FakeCatalog();
+		Product toothbrush = new Product("toothbrush", ProductUnit.Each);
+		catalog.addProduct(toothbrush, 0.99);
+		Product apples = new Product("apples", ProductUnit.Kilo);
+		catalog.addProduct(apples, 1.99);
 
-
-        Teller teller = new Teller(catalog);
-        teller.addSpecialOffer(SpecialOfferType.TenPercentDiscount, toothbrush, 10.0);
-        teller.addSpecialOffer(SpecialOfferType.ThreeForTwo , toothbrush , 0);
+		ShoppingCart cart = new ShoppingCart();
+		cart.addItemQuantity(apples, 2.5);
+		cart.addItemQuantity(toothbrush, 3);
 
 
-        Receipt receipt = teller.checksOutArticlesFrom(cart);
-        
-        Discount discountApples=new Discount(apples , "Add discount on product" , 0.995);
-        Discount discountToothbrush= new Discount(toothbrush, "Add Discount toothbrush" , 0.99);
-        receipt.addDiscount(discountApples);
-        assertThat(receipt.getTotalPrice()).isEqualTo(5.96);
+		Teller teller = new Teller(catalog);
+		teller.addSpecialOffer(SpecialOfferType.TenPercentDiscount, toothbrush, 10.0);
+		teller.addSpecialOffer(SpecialOfferType.ThreeForTwo, toothbrush, 0);
 
-        assertThat(new ReceiptPrinter().printReceipt(receipt)).isNotBlank();
 
-        
-    }
-    
+		Receipt receipt = teller.checksOutArticlesFrom(cart);
+
+		Discount discountApples = new Discount(apples, "Add discount on product", 0.995);
+		Discount discountToothbrush = new Discount(toothbrush, "Add Discount toothbrush", 0.99);
+		receipt.addDiscount(discountApples);
+
+		return receipt;
+	}
+
+	@Test
+	public void testSomething( ) {
+
+		Receipt receipt=new Receipt();
+		receipt=receiptToTest();
+
+		final double totalPriceTest = 5.96;
+		assertThat(receipt.getTotalPrice()).isEqualTo(totalPriceTest);
+
+
+	}
+
+	@Test
+	public void testProductQuantities() {
+		Receipt receipt=new Receipt();
+		receipt=receiptToTest();
+		ShoppingCart cart= new ShoppingCart();
+		cart.addItemQuantity(new Product("toothbrush", ProductUnit.Each) ,3 );
+		cart.addItemQuantity(new Product("apples", ProductUnit.Kilo), 2.5);
+
+		/*
+		Test the total sum of the quantities of articles
+		*/
+		double sumProductQuantities = 0.0;
+		double sumProductQuantitiesTest = 5.5;
+		for (Map.Entry<Product, Double> entry : cart.productQuantities.entrySet()) {
+			sumProductQuantities += entry.getValue();
+		}
+		assertThat(sumProductQuantities).isEqualTo(sumProductQuantitiesTest);
+	}
+
+	@Test
+	public void testReceiptPrinter(){
+		Receipt receipt=new Receipt();
+		receipt=receiptToTest();
+		assertThat(new ReceiptPrinter().printReceipt(receipt)).isNotBlank();
+	}
+
+
 }
 
 
