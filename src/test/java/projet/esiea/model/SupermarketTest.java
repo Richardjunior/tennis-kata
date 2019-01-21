@@ -14,12 +14,8 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 public class SupermarketTest {
 
 
-<<<<<<< Updated upstream
 	public Receipt creationOfOneReceipt() {
-=======
-	public Receipt receiptToTest() {
 
->>>>>>> Stashed changes
 		SupermarketCatalog catalog = new FakeCatalog();
 		Product toothbrush = new Product("toothbrush", ProductUnit.Each);
 		catalog.addProduct(toothbrush, 0.99);
@@ -34,7 +30,6 @@ public class SupermarketTest {
 		Teller teller = new Teller(catalog);
 		teller.addSpecialOffer(SpecialOfferType.TenPercentDiscount, toothbrush, 10.0);
 		teller.addSpecialOffer(SpecialOfferType.ThreeForTwo, toothbrush, 0);
-
 
 		Receipt receipt = teller.checksOutArticlesFrom(cart);
 
@@ -78,6 +73,4 @@ public class SupermarketTest {
 		assertThat(new ReceiptPrinter().printReceipt(receipt)).isNotBlank();
 		ReceiptPrinter printer = new ReceiptPrinter();
 	}
-
-
 }
