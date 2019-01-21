@@ -46,7 +46,7 @@ public class SupermarketTest {
 
 	}
 
-	@Test
+	/* Se renseigner aupres du prof pour celui ci */
 	public void testProductQuantities() {
 		Receipt receipt = creationOfOneReceipt();
 		ShoppingCart cart = new ShoppingCart();
