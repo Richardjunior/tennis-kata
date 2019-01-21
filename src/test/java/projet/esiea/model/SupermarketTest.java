@@ -4,14 +4,22 @@ import org.junit.jupiter.api.Test;
 
 import projet.esiea.ReceiptPrinter;
 
+import java.awt.font.TextLayout.CaretPolicy;
 import java.util.Map;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
+
+
 public class SupermarketTest {
 
 
+<<<<<<< Updated upstream
 	public Receipt creationOfOneReceipt() {
+=======
+	public Receipt receiptToTest() {
+
+>>>>>>> Stashed changes
 		SupermarketCatalog catalog = new FakeCatalog();
 		Product toothbrush = new Product("toothbrush", ProductUnit.Each);
 		catalog.addProduct(toothbrush, 0.99);
@@ -73,7 +81,3 @@ public class SupermarketTest {
 
 
 }
-
-
-
-
