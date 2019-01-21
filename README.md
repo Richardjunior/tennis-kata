@@ -23,7 +23,7 @@ Lancement
 
 Pour lancer les test, vous avez besoin de Maven.
 
-`mvn tst`
+`mvn test`
 
 dans un terminal dans le répertoire source du projet.
 
@@ -47,8 +47,8 @@ ESIEA 2018-2019
 
    [Toure Mahamadoun Ibrahima]: <https://github.com/medhy35>
    [HOMSI KUE Richard Junior]: <https://github.com/Richardjunior>
-   [KAMGAING Edoux]: <https://github.com/medhy35>
-   [LORENTER Justine]: <https://github.com/medhy35>
+   [KAMGAING Edoux]: <https://github.com/ed237>
+   [LORENTER Justine]: <https://github.com/justlo01>
    [ici]: <https://github.com/ledoyen/tp-java/tree/master/projet/4A_2019>
    
    [maven]: <https://maven.apache.org>
