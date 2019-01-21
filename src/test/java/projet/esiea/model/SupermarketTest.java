@@ -1,12 +1,8 @@
 package projet.esiea.model;
 
 import org.junit.jupiter.api.Test;
-
 import projet.esiea.ReceiptPrinter;
-
-import java.awt.font.TextLayout.CaretPolicy;
 import java.util.Map;
-
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 
@@ -71,6 +67,5 @@ public class SupermarketTest {
 	public void testReceiptPrinter() {
 		Receipt receipt = creationOfOneReceipt();
 		assertThat(new ReceiptPrinter().printReceipt(receipt)).isNotBlank();
-		ReceiptPrinter printer = new ReceiptPrinter();
 	}
 }
