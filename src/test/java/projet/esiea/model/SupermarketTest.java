@@ -11,7 +11,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 public class SupermarketTest {
 
 
-	public Receipt receiptToTest() {
+	public Receipt creationOfOneReceipt() {
 		SupermarketCatalog catalog = new FakeCatalog();
 		Product toothbrush = new Product("toothbrush", ProductUnit.Each);
 		catalog.addProduct(toothbrush, 0.99);
@@ -38,23 +38,19 @@ public class SupermarketTest {
 	}
 
 	@Test
-	public void testSomething( ) {
+	public void testTotalPrice() {
 
-		Receipt receipt=new Receipt();
-		receipt=receiptToTest();
-
+		Receipt receipt = creationOfOneReceipt();
 		final double totalPriceTest = 5.96;
 		assertThat(receipt.getTotalPrice()).isEqualTo(totalPriceTest);
-
 
 	}
 
 	@Test
 	public void testProductQuantities() {
-		Receipt receipt=new Receipt();
-		receipt=receiptToTest();
-		ShoppingCart cart= new ShoppingCart();
-		cart.addItemQuantity(new Product("toothbrush", ProductUnit.Each) ,3 );
+		Receipt receipt = creationOfOneReceipt();
+		ShoppingCart cart = new ShoppingCart();
+		cart.addItemQuantity(new Product("toothbrush", ProductUnit.Each), 3);
 		cart.addItemQuantity(new Product("apples", ProductUnit.Kilo), 2.5);
 
 		/*
@@ -69,10 +65,10 @@ public class SupermarketTest {
 	}
 
 	@Test
-	public void testReceiptPrinter(){
-		Receipt receipt=new Receipt();
-		receipt=receiptToTest();
+	public void testReceiptPrinter() {
+		Receipt receipt = creationOfOneReceipt();
 		assertThat(new ReceiptPrinter().printReceipt(receipt)).isNotBlank();
+		ReceiptPrinter printer = new ReceiptPrinter();
 	}
 
 
