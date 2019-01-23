@@ -2,16 +2,16 @@ package projet.esiea.model;
 
 import org.junit.jupiter.api.Test;
 import projet.esiea.ReceiptPrinter;
-import java.util.Map;
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
+import java.util.Map;
+
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 
 public class SupermarketTest {
 
 
 	public Receipt creationOfOneReceipt() {
-
 		SupermarketCatalog catalog = new FakeCatalog();
 		Product toothbrush = new Product("toothbrush", ProductUnit.Each);
 		catalog.addProduct(toothbrush, 0.99);
@@ -68,4 +68,12 @@ public class SupermarketTest {
 		Receipt receipt = creationOfOneReceipt();
 		assertThat(new ReceiptPrinter().printReceipt(receipt)).isNotBlank();
 	}
+
+
 }
+
+
+
+
+
+
