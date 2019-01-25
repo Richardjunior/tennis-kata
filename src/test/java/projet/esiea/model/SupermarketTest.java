@@ -43,8 +43,9 @@ public class SupermarketTest {
 		final double totalPriceTest = 5.96;
 		assertThat(receipt.getTotalPrice()).isEqualTo(totalPriceTest);
 
-	}
 
+	}
+@Test
 	/* Se renseigner aupres du prof pour celui ci */
 	public void testProductQuantities() {
 		Receipt receipt = creationOfOneReceipt();
