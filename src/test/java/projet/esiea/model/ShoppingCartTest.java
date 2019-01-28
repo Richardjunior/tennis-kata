@@ -12,7 +12,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.registerCustomDateFor
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
-public class ShoppintCartTest {
+public class ShoppingCartTest {
 
 
 	/*
