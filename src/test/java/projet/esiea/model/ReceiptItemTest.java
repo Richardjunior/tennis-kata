@@ -43,7 +43,7 @@ public class ReceiptItemTest {
 		ReceiptItem Actual = new ReceiptItem(productToTest,2D,2D,4);
 		ReceiptItem Except = new ReceiptItem(productToTest,2D,2D,4);
 
-	assertThat(Actual).isEqualToComparingFieldByField(Except);
+		assertThat(Actual).isEqualTo(Except);
 
 	}
 }

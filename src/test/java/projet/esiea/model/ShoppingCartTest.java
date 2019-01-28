@@ -8,6 +8,9 @@ import java.util.Map;
 
 import static org.assertj.core.api.Assertions.within;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.assertj.core.api.AssertionsForClassTypes.registerCustomDateFormat;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
 public class ShoppingCartTest {
 
@@ -29,6 +32,7 @@ public class ShoppingCartTest {
 		teller.addSpecialOffer(SpecialOfferType.ThreeForTwo, toothbrush, 0);
 
 		Receipt receipt = teller.checksOutArticlesFrom(cart);
+
 
 		assertThat(receipt.getTotalPrice()).isEqualTo(expectedPrice);
 
