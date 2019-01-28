@@ -35,4 +35,15 @@ public class ReceiptItemTest {
 		assertThat(receiptItemForTest.hashCode()).isNotNull();
 
 	}
+
+	@Test
+	public void testEqualObject(){
+		Product productToTest = new Product("apple",ProductUnit.Kilo);
+
+		ReceiptItem Actual = new ReceiptItem(productToTest,2D,2D,4);
+		ReceiptItem Except = new ReceiptItem(productToTest,2D,2D,4);
+
+		assertThat(Actual).isEqualTo(Except);
+
+	}
 }
