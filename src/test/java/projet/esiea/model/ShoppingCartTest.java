@@ -4,9 +4,12 @@ import org.junit.jupiter.api.Test;
 
 import javax.swing.*;
 
+import java.util.Map;
+
 import static org.assertj.core.api.Assertions.within;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.registerCustomDateFormat;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
 public class ShoppintCartTest {
@@ -129,6 +132,29 @@ public class ShoppintCartTest {
 		final double currentPrice = receipt.getTotalPrice();
 
 		assertThat(currentPrice).isEqualTo(expectedPrice , within(0.001));
+
+	}
+
+	@Test
+	void testAddItem(){
+		Product productToAddForTest= new Product("banana" +
+			"" ,ProductUnit.Kilo);
+
+
+		ShoppingCart shoppingCart=new ShoppingCart();
+		shoppingCart.addItem(productToAddForTest);
+		shoppingCart.addItem(productToAddForTest);
+		shoppingCart.addItem(productToAddForTest);
+
+
+		int sumProductQuantities=0;
+
+		for (Map.Entry<Product, Double> entry : shoppingCart.productQuantities.entrySet()) {
+			sumProductQuantities += entry.getValue();
+
+		}
+		assertThat(sumProductQuantities).isEqualTo(3);
+
 
 	}
 
