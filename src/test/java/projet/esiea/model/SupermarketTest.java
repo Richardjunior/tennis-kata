@@ -64,11 +64,7 @@ public class SupermarketTest {
 		assertThat(sumProductQuantities).isEqualTo(sumProductQuantitiesTest);
 	}
 
-	@Test
-	public void testReceiptPrinter() {
-		Receipt receipt = creationOfOneReceipt();
-		assertThat(new ReceiptPrinter().printReceipt(receipt)).isNotBlank();
-	}
+
 
 
 }

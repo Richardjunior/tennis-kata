@@ -42,6 +42,8 @@ public class ReceiptItem {
                 Objects.equals(product, that.product);
     }
 
+
+
     @Override
     public int hashCode() {
 
