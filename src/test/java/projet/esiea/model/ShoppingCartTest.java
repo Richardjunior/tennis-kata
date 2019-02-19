@@ -29,7 +29,7 @@ public class ShoppingCartTest {
 		cart.addItemQuantity(toothbrush, 3);
 
 		Teller teller = new Teller(catalog);
-		teller.addSpecialOffer(SpecialOfferType.ThreeForTwo, toothbrush, 0);
+		//teller.addSpecialOffer(SpecialOfferType.ThreeForTwo, toothbrush, 0);
 
 		Receipt receipt = teller.checksOutArticlesFrom(cart);
 
@@ -56,7 +56,7 @@ public class ShoppingCartTest {
 		Teller teller = new Teller(catalog);
 
 		ShoppingCart cart = new ShoppingCart();
-		teller.addSpecialOffer(SpecialOfferType.TenPercentDiscount, bagofrice, 10);
+		//teller.addSpecialOffer(SpecialOfferType.TenPercentDiscount, bagofrice, 10);
 		cart.addItemQuantity(bagofrice, quantity);
 
 		Receipt receipt = teller.checksOutArticlesFrom(cart);
@@ -85,7 +85,7 @@ public class ShoppingCartTest {
 		Teller teller = new Teller(catalog);
 
 		ShoppingCart cart = new ShoppingCart();
-		teller.addSpecialOffer(SpecialOfferType.FiveForAmount, tubesOfToothpaste, price * 5);
+		//teller.addSpecialOffer(SpecialOfferType.FiveForAmount, tubesOfToothpaste, price * 5);
 		cart.addItemQuantity(tubesOfToothpaste, quantity);
 
 
@@ -119,7 +119,7 @@ public class ShoppingCartTest {
 		Teller teller= new Teller(catalog);
 
 		ShoppingCart cart = new ShoppingCart();
-		teller.addSpecialOffer(SpecialOfferType.TwoForAmount , cherryTomatoes , price*quantity);
+		//teller.addSpecialOffer(SpecialOfferType.TwoForAmount , cherryTomatoes , price*quantity);
 		cart.addItemQuantity(cherryTomatoes  , quantity);
 
 

@@ -25,8 +25,8 @@ public class ReceiptItemTest {
 
 
 		Teller teller = new Teller(catalog);
-		teller.addSpecialOffer(SpecialOfferType.TenPercentDiscount, toothbrush, 10.0);
-		teller.addSpecialOffer(SpecialOfferType.ThreeForTwo, toothbrush, 0);
+		//teller.addSpecialOffer(SpecialOfferType.TenPercentDiscount, toothbrush, 10.0);
+		//teller.addSpecialOffer(SpecialOfferType.ThreeForTwo, toothbrush, 0);
 
 		Receipt receipt = teller.checksOutArticlesFrom(cart);
 
@@ -90,9 +90,9 @@ public class ReceiptItemTest {
 		catalog.addProduct(spoon, spoon_price);
 		catalog.addProduct(avocado, avocado_price);
 
-		teller.addSpecialOffer(SpecialOfferType.TwoForAmount, toothbrush, 1.5);
-		teller.addSpecialOffer(SpecialOfferType.ThreeForTwo, spoon, spoon_price);
-		teller.addSpecialOffer(SpecialOfferType.FiveForAmount, avocado, 5.5);
+	//	teller.addSpecialOffer(SpecialOfferType.TwoForAmount, toothbrush, 1.5);
+	//	teller.addSpecialOffer(SpecialOfferType.ThreeForTwo, spoon, spoon_price);
+	//	teller.addSpecialOffer(SpecialOfferType.FiveForAmount, avocado, 5.5);
 
 		cart.addItemQuantity(toothbrush, toothbrush_quantity);
 		cart.addItemQuantity(spoon, spoon_quantity);

@@ -1,18 +1,16 @@
 package projet.esiea.model;
 
-public class Offer {
-    SpecialOfferType offerType;
-    private final Product product;
-    double argument;
+import java.util.Map;
 
-    public Offer(SpecialOfferType offerType, Product product, double argument) {
-        this.offerType = offerType;
-        this.argument = argument;
-        this.product = product;
+public interface Offer {
+
+
+
+	Product[] getProducts();
+	Discount getDiscount();
+
+	Map<Product,Double> DiscountCalculate(Map<Product,Double> items, SupermarketCatalog catalog);
+
+
     }
 
-    Product getProduct() {
-        return this.product;
-    }
-
-}

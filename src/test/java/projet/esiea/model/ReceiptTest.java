@@ -21,8 +21,8 @@ public class ReceiptTest {
 		cart.addItemQuantity(toothbrush, 3);
 
 		Teller teller = new Teller(catalog);
-		teller.addSpecialOffer(SpecialOfferType.TenPercentDiscount, toothbrush, 10.0);
-		teller.addSpecialOffer(SpecialOfferType.ThreeForTwo, toothbrush, 0);
+		//teller.addSpecialOffer(SpecialOfferType.TenPercentDiscount, toothbrush, 10.0);
+		//teller.addSpecialOffer(SpecialOfferType.ThreeForTwo, toothbrush, 0);
 		Receipt receipt = teller.checksOutArticlesFrom(cart);
 
 		Discount discountApples = new Discount(apples, "Add discount on product", 0.995);
