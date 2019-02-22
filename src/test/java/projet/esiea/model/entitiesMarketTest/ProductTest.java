@@ -1,4 +1,4 @@
-package projet.esiea.model;
+package projet.esiea.model.entitiesMarketTest;
 
 import org.junit.jupiter.api.Test;
 

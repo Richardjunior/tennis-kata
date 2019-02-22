@@ -1,15 +1,21 @@
-package projet.esiea.model;
+package projet.esiea.model.entitiesReceiptTest;
 
 import org.junit.jupiter.api.Test;
+import projet.esiea.model.alldiscounts.FiveForAmount;
+import projet.esiea.model.alldiscounts.TenPercentDiscount;
+import projet.esiea.model.alldiscounts.ThreeForTwo;
 import projet.esiea.model.entitiesMarket.Discount;
 import projet.esiea.model.entitiesMarket.Product;
 import projet.esiea.model.entitiesMarket.ProductUnit;
-import projet.esiea.model.entitiesMarketTest.FakeCatalog;
+import projet.esiea.model.FakeCatalog;
 import projet.esiea.model.entitiesReceipt.Receipt;
 import projet.esiea.model.entitiesReceipt.ShoppingCart;
 import projet.esiea.model.entitiesReceipt.SupermarketCatalog;
 import projet.esiea.model.entitiesReceipt.Teller;
 
+import java.util.Map;
+
+import static org.assertj.core.api.Assertions.within;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 
@@ -18,25 +24,36 @@ public class SupermarketTest {
 
 	public Receipt creationOfOneReceipt() {
 		SupermarketCatalog catalog = new FakeCatalog();
+
 		Product toothbrush = new Product("toothbrush", ProductUnit.Each);
 		catalog.addProduct(toothbrush, 0.99);
-		Product apples = new Product("apples", ProductUnit.Kilo);
-		catalog.addProduct(apples, 1.99);
+		Product toothpaste = new Product("toothpaste", ProductUnit.Each);
+		catalog.addProduct(toothpaste, 1.79);
+		Product bagOfRize = new Product("bagofrize" , ProductUnit.Each);
+		catalog.addProduct(bagOfRize , 2.49D);
 
 		ShoppingCart cart = new ShoppingCart();
-		cart.addItemQuantity(apples, 2.5);
+		cart.addItemQuantity(toothpaste, 2.5);
 		cart.addItemQuantity(toothbrush, 3);
+		cart.addItemQuantity(bagOfRize, 5);
 
 
 		Teller teller = new Teller(catalog);
 	//	teller.addSpecialOffer(SpecialOfferType.TenPercentDiscount, toothbrush, 10.0);
 	//	teller.addSpecialOffer(SpecialOfferType.ThreeForTwo, toothbrush, 0);
 
+		teller.addSpecialOffer(new TenPercentDiscount(bagOfRize, 5));
+		teller.addSpecialOffer(new ThreeForTwo(toothbrush ,3 ));
+		teller.addSpecialOffer(new FiveForAmount(toothpaste, 5));
+
 		Receipt receipt = teller.checksOutArticlesFrom(cart);
 
-		Discount discountApples = new Discount(apples, "Add discount on product", 0.995);
+		Discount discountToothpaste = new Discount(toothpaste, "Add discount on product", 1.46);
 		Discount discountToothbrush = new Discount(toothbrush, "Add Discount toothbrush", 0.99);
-		receipt.addDiscount(discountApples);
+		Discount discountbagofrize = new Discount(bagOfRize , "Add discount for bagOfRize " , 1.245);
+		receipt.addDiscount(discountToothpaste);
+		receipt.addDiscount(discountToothpaste);
+		receipt.addDiscount(discountbagofrize);
 
 		return receipt;
 	}
@@ -45,29 +62,12 @@ public class SupermarketTest {
 	public void testTotalPrice() {
 
 		Receipt receipt = creationOfOneReceipt();
-		final double totalPriceTest = 5.96;
-		assertThat(receipt.getTotalPrice()).isEqualTo(totalPriceTest);
+		final double totalPriceTest = 13.495;
+		assertThat(receipt.getTotalPrice()).isEqualTo(totalPriceTest, within(0.01));
 
 
 	}
-@Test
-	/* Se renseigner aupres du prof pour celui ci */
-	public void testProductQuantities() {
-		Receipt receipt = creationOfOneReceipt();
-		ShoppingCart cart = new ShoppingCart();
-		cart.addItemQuantity(new Product("toothbrush", ProductUnit.Each), 3);
-		cart.addItemQuantity(new Product("apples", ProductUnit.Kilo), 2.5);
 
-		/*
-		Test the total sum of the quantities of articles
-		*/
-		double sumProductQuantities = 0.0;
-		double sumProductQuantitiesTest = 5.5;
-		/*for (Map.Entry<Product, Double> entry : cart.productQuantities.entrySet()) {
-			sumProductQuantities += entry.getValue();
-		}*/
-		assertThat(sumProductQuantities).isEqualTo(sumProductQuantitiesTest);
-	}
 
 
 

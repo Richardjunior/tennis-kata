@@ -2,5 +2,17 @@ language: java
 
 script: "mvn cobertura:cobertura"
 
+
 after_success:
   - bash <(curl -s https://codecov.io/bash)
+
+dist: trusty
+
+jdk:
+	- openjdk7
+	- oraclejdk7
+	- oraclejdk8
+
+cache:
+	directories:
+		- $HOME/.m2
