@@ -1,4 +1,7 @@
-package projet.esiea.model;
+package projet.esiea.model.entitiesReceipt;
+
+import projet.esiea.model.entitiesMarket.Discount;
+import projet.esiea.model.entitiesMarket.Product;
 
 import java.util.ArrayList;
 import java.util.List;

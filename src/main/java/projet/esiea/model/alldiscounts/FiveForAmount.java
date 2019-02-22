@@ -1,13 +1,12 @@
-package projet.esiea.model.offer;
+package projet.esiea.model.alldiscounts;
 
 
-import projet.esiea.model.Discount;
-import projet.esiea.model.Offer;
-import projet.esiea.model.Product;
-import projet.esiea.model.SupermarketCatalog;
+import projet.esiea.model.entitiesMarket.Discount;
+import projet.esiea.model.entitiesMarket.Offer;
+import projet.esiea.model.entitiesMarket.Product;
+import projet.esiea.model.entitiesReceipt.SupermarketCatalog;
 
 import java.lang.*;
-import java.util.*;
 import java.util.Map;
 
 public class FiveForAmount implements Offer {

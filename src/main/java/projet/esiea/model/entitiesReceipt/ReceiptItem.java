@@ -1,6 +1,6 @@
-package projet.esiea.model;
+package projet.esiea.model.entitiesReceipt;
 
-import java.util.Objects;
+import projet.esiea.model.entitiesMarket.Product;
 
 public class ReceiptItem {
     private final Product product;

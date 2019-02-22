@@ -1,5 +1,8 @@
 package projet.esiea.model;
 
+import projet.esiea.model.entitiesMarket.Product;
+import projet.esiea.model.entitiesReceipt.SupermarketCatalog;
+
 import java.util.HashMap;
 import java.util.Map;
 

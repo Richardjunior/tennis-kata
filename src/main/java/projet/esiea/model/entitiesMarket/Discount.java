@@ -1,4 +1,4 @@
-package projet.esiea.model;
+package projet.esiea.model.entitiesMarket;
 
 public class Discount {
     private final String description;

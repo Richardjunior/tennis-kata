@@ -1,4 +1,4 @@
-package projet.esiea.model;
+package projet.esiea.model.entitiesMarket;
 
 public class ProductQuantity {
     private final Product product;

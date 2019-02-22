@@ -1,9 +1,14 @@
 package projet.esiea.model;
 
 import org.junit.jupiter.api.Test;
-import projet.esiea.ReceiptPrinter;
-
-import java.util.Map;
+import projet.esiea.model.entitiesMarket.Discount;
+import projet.esiea.model.entitiesMarket.Product;
+import projet.esiea.model.entitiesMarket.ProductUnit;
+import projet.esiea.model.entitiesMarketTest.FakeCatalog;
+import projet.esiea.model.entitiesReceipt.Receipt;
+import projet.esiea.model.entitiesReceipt.ShoppingCart;
+import projet.esiea.model.entitiesReceipt.SupermarketCatalog;
+import projet.esiea.model.entitiesReceipt.Teller;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
@@ -58,9 +63,9 @@ public class SupermarketTest {
 		*/
 		double sumProductQuantities = 0.0;
 		double sumProductQuantitiesTest = 5.5;
-		for (Map.Entry<Product, Double> entry : cart.productQuantities.entrySet()) {
+		/*for (Map.Entry<Product, Double> entry : cart.productQuantities.entrySet()) {
 			sumProductQuantities += entry.getValue();
-		}
+		}*/
 		assertThat(sumProductQuantities).isEqualTo(sumProductQuantitiesTest);
 	}
 

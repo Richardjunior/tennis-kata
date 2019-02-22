@@ -1,7 +1,11 @@
 package projet.esiea.model;
 
 import org.junit.jupiter.api.Test;
-import projet.esiea.ReceiptPrinter;
+import projet.esiea.model.entitiesReceipt.ReceiptPrinter;
+import projet.esiea.model.entitiesMarket.Discount;
+import projet.esiea.model.entitiesMarket.Product;
+import projet.esiea.model.entitiesMarket.ProductUnit;
+import projet.esiea.model.entitiesReceipt.*;
 
 import static org.assertj.core.api.Assertions.within;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;

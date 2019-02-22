@@ -1,6 +1,11 @@
-package projet.esiea.model;
+package projet.esiea.model.entitiesReceipt;
 
-import projet.esiea.model.offer.*;
+import projet.esiea.model.entitiesMarket.Offer;
+import projet.esiea.model.entitiesMarket.Product;
+import projet.esiea.model.entitiesMarket.ProductQuantity;
+import projet.esiea.model.entitiesReceipt.Receipt;
+import projet.esiea.model.entitiesReceipt.ShoppingCart;
+import projet.esiea.model.entitiesReceipt.SupermarketCatalog;
 
 import java.util.HashMap;
 import java.util.List;

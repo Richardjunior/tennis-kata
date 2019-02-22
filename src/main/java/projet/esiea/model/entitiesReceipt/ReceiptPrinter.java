@@ -1,6 +1,9 @@
-package projet.esiea;
+package projet.esiea.model.entitiesReceipt;
 
-import projet.esiea.model.*;
+import projet.esiea.model.entitiesMarket.Discount;
+import projet.esiea.model.entitiesMarket.ProductUnit;
+import projet.esiea.model.entitiesReceipt.Receipt;
+import projet.esiea.model.entitiesReceipt.ReceiptItem;
 
 import java.util.Locale;
 
