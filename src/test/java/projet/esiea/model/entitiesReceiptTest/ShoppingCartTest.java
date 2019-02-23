@@ -19,12 +19,6 @@ import static org.junit.jupiter.api.Assertions.fail;
 public class ShoppingCartTest {
 
 
-
-
-
-
-
-
 	/*
 	 * Test offerType = TwoForAmount
 	 * */
@@ -47,9 +41,7 @@ public class ShoppingCartTest {
 		//teller.addSpecialOffer(SpecialOfferType.TwoForAmount , cherryTomatoes , price*quantity);
 		cart.addItemQuantity(cherryTomatoes, quantity);
 
-
 		Discount discountCherryTomatoes = new Discount(cherryTomatoes, "add discount to cherryTomatoes ", 0.39D);
-
 
 		Receipt receipt = teller.checksOutArticlesFrom(cart);
 		receipt.addDiscount(discountCherryTomatoes);
