@@ -2,7 +2,9 @@ package projet.esiea.model.entitiesReceiptTest;
 
 import org.junit.jupiter.api.Test;
 import projet.esiea.model.FakeCatalog;
-import projet.esiea.model.alldiscounts.*;
+import projet.esiea.model.alldiscounts.simpleDiscountedBundles.FiveForAmount;
+import projet.esiea.model.alldiscounts.simpleDiscountedBundles.TenPercentDiscount;
+import projet.esiea.model.alldiscounts.simpleDiscountedBundles.ThreeForTwo;
 import projet.esiea.model.entitiesMarket.*;
 import projet.esiea.model.entitiesReceipt.*;
 import projet.esiea.model.entitiesReceipt.Teller;
@@ -54,7 +56,7 @@ public class SupermarketTest {
 	public void testTotalPrice() {
 
 		Receipt receipt = creationOfOneReceipt();
-		final double totalPriceTest = 13.495;
+		final double totalPriceTest = 14.1175;
 		assertThat(receipt.getTotalPrice()).isEqualTo(totalPriceTest, within(0.01));
 
 

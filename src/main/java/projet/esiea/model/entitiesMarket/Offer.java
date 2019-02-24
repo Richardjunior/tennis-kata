@@ -1,7 +1,5 @@
 package projet.esiea.model.entitiesMarket;
 
-import com.sun.org.apache.regexp.internal.RE;
-import projet.esiea.model.alldiscounts.SpecialOfferType;
 import projet.esiea.model.entitiesReceipt.SupermarketCatalog;
 
 import java.util.Map;

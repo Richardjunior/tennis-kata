@@ -1,4 +1,4 @@
-package projet.esiea.model.alldiscounts;
+package projet.esiea.model.alldiscounts.simpleDiscountedBundles;
 
 public enum SpecialOfferType {
     ThreeForTwo, TenPercentDiscount, TwoForAmount, FiveForAmount;

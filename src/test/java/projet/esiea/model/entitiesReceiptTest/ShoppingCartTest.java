@@ -19,38 +19,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 public class ShoppingCartTest {
 
 
-	/*
-	 * Test offerType = TwoForAmount
-	 * */
-	@Test
-	void offerTwoForAmount() {
 
-		final double price = 0.69D;
-		final int quantity = 2;
-		final double expectedPrice = 0.99D;
-
-		Product cherryTomatoes = new Product("cherryTomatoes", ProductUnit.Each);
-
-		SupermarketCatalog catalog = new FakeCatalog();
-		catalog.addProduct(cherryTomatoes, price);
-
-
-		Teller teller = new Teller(catalog);
-
-		ShoppingCart cart = new ShoppingCart();
-		//teller.addSpecialOffer(SpecialOfferType.TwoForAmount , cherryTomatoes , price*quantity);
-		cart.addItemQuantity(cherryTomatoes, quantity);
-
-		Discount discountCherryTomatoes = new Discount(cherryTomatoes, "add discount to cherryTomatoes ", 0.39D);
-
-		Receipt receipt = teller.checksOutArticlesFrom(cart);
-		receipt.addDiscount(discountCherryTomatoes);
-
-		final double currentPrice = receipt.getTotalPrice();
-
-		assertThat(currentPrice).isEqualTo(expectedPrice, within(0.001));
-
-	}
 
 	@Test
 	void testAddItem() {

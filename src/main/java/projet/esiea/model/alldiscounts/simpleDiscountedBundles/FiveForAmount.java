@@ -1,4 +1,4 @@
-package projet.esiea.model.alldiscounts;
+package projet.esiea.model.alldiscounts.simpleDiscountedBundles;
 
 
 import projet.esiea.model.entitiesMarket.Discount;

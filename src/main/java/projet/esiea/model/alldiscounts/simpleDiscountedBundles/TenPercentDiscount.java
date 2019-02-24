@@ -1,4 +1,4 @@
-package projet.esiea.model.alldiscounts;
+package projet.esiea.model.alldiscounts.simpleDiscountedBundles;
 
 
 import projet.esiea.model.entitiesMarket.Discount;
@@ -11,7 +11,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class TenPercentDiscount implements Offer {
-
+	/*
+	 * Argument c'est le pourcentage de réduction
+	 * */
 	public Product p;
 	public double argument;
 	private Discount discount;
@@ -22,6 +24,24 @@ public class TenPercentDiscount implements Offer {
 		this.p = p;
 	}
 
+
+	@Override
+	public Map<Product, Double> DiscountCalculate(Map<Product, Double> items, SupermarketCatalog catalog) {
+		//nous calculons la réduciton des 10% des produits
+
+		double quantity = items.get(p);
+		double priceUnit = catalog.getUnitPrice(p);
+
+
+		final double discountTotal = quantity * priceUnit * (argument / 100);
+		//Nous l'appliquons sur nos produits
+		discount = new Discount(p, "10%" + quantity, discountTotal);
+
+		items.remove(p);
+		return items;
+	}
+
+
 	@Override
 	public Product[] getProducts() {
 		return new Product[]{p};
@@ -31,26 +51,5 @@ public class TenPercentDiscount implements Offer {
 	public Discount getDiscount() {
 		return discount;
 	}
-
-
-	@Override
-	public Map<Product, Double> DiscountCalculate(Map<Product, Double> items, SupermarketCatalog catalog) {
-		//nous calculons la réduciton des 10% des produits
-
-		double quantity = items.get(p);
-		double priceUnit = catalog.getUnitPrice(p);
-
-		//dans notre cas, l'attribut argument est la quantité de noter produit
-		if (argument != quantity) {
-			argument = quantity;
-		}
-		final double  discountTotal = argument * priceUnit * 0.1;
-		//Nous l'applicons sur nos produits
-		discount = new Discount(p, "10%" + quantity, discountTotal);
-
-		items.remove(p);
-		return items;
-	}
-
 
 }

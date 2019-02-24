@@ -2,8 +2,7 @@ package projet.esiea.model.alldiscountsTest;
 
 import org.junit.jupiter.api.Test;
 import projet.esiea.model.FakeCatalog;
-import projet.esiea.model.alldiscounts.TenPercentDiscount;
-import projet.esiea.model.alldiscounts.ThreeForTwo;
+import projet.esiea.model.alldiscounts.simpleDiscountedBundles.ThreeForTwo;
 import projet.esiea.model.entitiesMarket.Product;
 import projet.esiea.model.entitiesMarket.ProductUnit;
 import projet.esiea.model.entitiesReceipt.Receipt;

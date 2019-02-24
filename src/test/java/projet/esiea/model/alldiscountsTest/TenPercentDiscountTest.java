@@ -2,17 +2,13 @@ package projet.esiea.model.alldiscountsTest;
 
 import org.junit.jupiter.api.Test;
 import projet.esiea.model.FakeCatalog;
-import projet.esiea.model.alldiscounts.FiveForAmount;
-import projet.esiea.model.alldiscounts.TenPercentDiscount;
+import projet.esiea.model.alldiscounts.simpleDiscountedBundles.TenPercentDiscount;
 import projet.esiea.model.entitiesMarket.Product;
 import projet.esiea.model.entitiesMarket.ProductUnit;
 import projet.esiea.model.entitiesReceipt.Receipt;
 import projet.esiea.model.entitiesReceipt.ShoppingCart;
 import projet.esiea.model.entitiesReceipt.SupermarketCatalog;
 import projet.esiea.model.entitiesReceipt.Teller;
-
-import java.util.HashMap;
-import java.util.Map;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.within;
@@ -39,7 +35,7 @@ public class TenPercentDiscountTest {
 
 
 		Teller teller = new Teller(catalog);
-		teller.addSpecialOffer(new TenPercentDiscount(bagofrice, 5 ));
+		teller.addSpecialOffer(new TenPercentDiscount(bagofrice, 10 ));
 
 		ShoppingCart cart = new ShoppingCart();
 		cart.addItemQuantity(bagofrice , quantity);
