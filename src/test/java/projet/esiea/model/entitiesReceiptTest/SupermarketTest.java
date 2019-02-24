@@ -1,7 +1,8 @@
-package projet.esiea.model;
+package projet.esiea.model.entitiesReceiptTest;
 
 import org.junit.jupiter.api.Test;
 
+import projet.esiea.model.FakeCatalog;
 import projet.esiea.model.alldiscounts.simpleDiscountedBundles.FiveForAmount;
 import projet.esiea.model.alldiscounts.simpleDiscountedBundles.TenPercentDiscount;
 import projet.esiea.model.alldiscounts.simpleDiscountedBundles.ThreeForTwo;

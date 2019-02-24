@@ -1,4 +1,4 @@
-package projet.esiea.model;
+package projet.esiea.model.alldiscountsTest.simpleDiscountedBundlesTest;
 
 import org.junit.jupiter.api.Test;
 import projet.esiea.model.FakeCatalog;
@@ -21,11 +21,13 @@ public class TwoForAmountTest {
 	 * */
 	@Test
 	void offerTwoForAmount() {
-/*
+
 		final double price = 0.69D;
 		final int quantity = 2;
-		final double argument = 2;
+		final double argument = 28.26D;
+		Receipt receipt = null;
 
+		double expectedPrice = price * quantity - (quantity * price * argument) / 100;
 
 		Product cherryTomatoes = new Product("cherryTomatoes", ProductUnit.Each);
 
@@ -34,24 +36,15 @@ public class TwoForAmountTest {
 		ShoppingCart cart = new ShoppingCart();
 
 		catalog.addProduct(cherryTomatoes, price);
-		cart.addItemQuantity(cherryTomatoes, quantity);
 		teller.addSpecialOffer(new TwoForAmount(cherryTomatoes, argument));
+		cart.addItemQuantity(cherryTomatoes, quantity);
 
-
-
-		double total = argument * quantity / 2 + (int) quantity % 2 * price;
-		double discountN = price * quantity - total;
-		double expectedPrice = 0.99D;
-
-		Discount discountCherryTomatoes = new Discount(cherryTomatoes, "add discount to cherryTomatoes ", discountN);
-		cart.addItem(cherryTomatoes);
-		Receipt receipt = teller.checksOutArticlesFrom(cart);
-
-
+		receipt = teller.checksOutArticlesFrom(cart);
 		final double currentPrice = receipt.getTotalPrice();
 
 		assertThat(currentPrice).isEqualTo(expectedPrice, within(0.001));
-*/
+
+
 	}
 
 }

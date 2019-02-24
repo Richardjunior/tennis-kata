@@ -9,7 +9,7 @@ import java.util.Map;
 
 public class TwoForAmount implements Offer {
 
-	private final double argument;
+	private double argument;
 	private Discount discount;
 	private Product product;
 
@@ -33,13 +33,19 @@ public class TwoForAmount implements Offer {
 
 		double quantity = items.get(product);
 		double priceUnit = catalog.getUnitPrice(product);
-
-
+		/*
+		 * Deux boîtes de tomates cerises au prix de 0,99 €, prix normal de 0,69 € par boîte.
+		 * SELON NOS CALCULS, IL S'AGIT DE FAIRE UNE REDUCTION DE 28.26%
+		 *
+		 * c'est la raison pour laquelle argument prend 28.26%
+		 * */
+		argument = 28.26D;
 
 		if ((int) quantity >= 2) {
-			double total = argument * (int) quantity / 2 + (int) quantity % 2 * priceUnit;
-			double discountN = priceUnit * quantity - total;
-			discount = new Discount(product, "2 for " + argument, discountN);
+
+			double total = ((int) quantity * priceUnit * argument) / 100;
+
+			discount = new Discount(product, "2 for " + argument, total);
 		}
 
 

@@ -1,4 +1,4 @@
-package projet.esiea.model;
+package projet.esiea.model.entitiesReceiptTest;
 
 import org.junit.jupiter.api.Test;
 import projet.esiea.model.FakeCatalog;
