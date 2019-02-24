@@ -1,4 +1,4 @@
-package projet.esiea.model.alldiscountsTest;
+package projet.esiea.model;
 
 import org.junit.jupiter.api.Test;
 import projet.esiea.model.FakeCatalog;
