@@ -33,7 +33,8 @@ public class SupermarketTest {
 
 
 		Teller teller = new Teller(catalog);
-
+	//	teller.addSpecialOffer(SpecialOfferType.TenPercentDiscount, toothbrush, 10.0);
+	//	teller.addSpecialOffer(SpecialOfferType.ThreeForTwo, toothbrush, 0);
 
 		teller.addSpecialOffer(new TenPercentDiscount(bagOfRize, 5));
 		teller.addSpecialOffer(new ThreeForTwo(toothbrush ,3 ));
@@ -45,7 +46,7 @@ public class SupermarketTest {
 		Discount discountToothbrush = new Discount(toothbrush, "Add Discount toothbrush", 0.99);
 		Discount discountbagofrize = new Discount(bagOfRize , "Add discount for bagOfRize " , 1.245);
 		receipt.addDiscount(discountToothpaste);
-		receipt.addDiscount(discountToothbrush);
+		receipt.addDiscount(discountToothpaste);
 		receipt.addDiscount(discountbagofrize);
 
 		return receipt;
@@ -55,8 +56,8 @@ public class SupermarketTest {
 	public void testTotalPrice() {
 
 		Receipt receipt = creationOfOneReceipt();
-		final double totalPriceTest = 14.58;
-		assertThat(receipt.getTotalPrice()).isEqualTo(totalPriceTest, within(0.1));
+		final double totalPriceTest = 14.1175;
+		assertThat(receipt.getTotalPrice()).isEqualTo(totalPriceTest, within(0.01));
 
 
 	}
