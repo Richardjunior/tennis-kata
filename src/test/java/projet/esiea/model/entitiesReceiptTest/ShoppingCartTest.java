@@ -10,6 +10,8 @@ import projet.esiea.model.entitiesReceipt.ShoppingCart;
 import projet.esiea.model.entitiesReceipt.SupermarketCatalog;
 import projet.esiea.model.entitiesReceipt.Teller;
 
+import java.util.Map;
+
 import static org.assertj.core.api.Assertions.within;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.registerCustomDateFormat;
@@ -20,7 +22,6 @@ public class ShoppingCartTest {
 
 
 
-
 	@Test
 	void testAddItem() {
 		Product productToAddForTest = new Product("banana" +
@@ -28,20 +29,20 @@ public class ShoppingCartTest {
 
 
 		ShoppingCart shoppingCart = new ShoppingCart();
-		/*shoppingCart.addItem(productToAddForTest);
+		shoppingCart.addItem(productToAddForTest);
 		shoppingCart.addItem(productToAddForTest);
 		shoppingCart.addItem(productToAddForTest);
 
 
 		int sumProductQuantities=0;
-/*
+
 		for (Map.Entry<Product, Double> entry : shoppingCart.productQuantities.entrySet()) {
 			sumProductQuantities += entry.getValue();
 
 		}
 		assertThat(sumProductQuantities).isEqualTo(3);
 
-*/
+
 	}
 
 

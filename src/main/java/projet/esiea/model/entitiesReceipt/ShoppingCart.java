@@ -13,7 +13,7 @@ import java.util.Map;
 public class ShoppingCart {
 
 	private final List<ProductQuantity> items = new ArrayList<>();
-	Map<Product, Double> productQuantities = new HashMap<>();
+	public Map<Product, Double> productQuantities = new HashMap<>();
 
 	List<ProductQuantity> getItems() {
 		return new ArrayList<>(items);
