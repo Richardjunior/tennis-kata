@@ -12,7 +12,7 @@ Le sujet se trouve [ici]
 ### Liste des membres du projet
 
 * [TOURE Mahamadoun Ibrahima] 
-* [HOMSI KUE Richard ]
+* [HOMSI KUE Richard Junior]
 * [KAMGAING Edoux]
 * [LORENTER Justine]
 
