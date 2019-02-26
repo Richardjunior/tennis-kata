@@ -11,6 +11,9 @@ import projet.esiea.model.entitiesReceipt.ShoppingCart;
 import projet.esiea.model.entitiesReceipt.SupermarketCatalog;
 import projet.esiea.model.entitiesReceipt.Teller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import static org.assertj.core.api.Assertions.within;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
@@ -25,9 +28,11 @@ public class TwoForAmountTest {
 		final double price = 0.69D;
 		final int quantity = 2;
 		final double argument = 28.26D;
-		Receipt receipt = null;
+		Receipt receipt;
 
 		double expectedPrice = price * quantity - (quantity * price * argument) / 100;
+
+
 
 		Product cherryTomatoes = new Product("cherryTomatoes", ProductUnit.Each);
 
@@ -39,11 +44,12 @@ public class TwoForAmountTest {
 		teller.addSpecialOffer(new TwoForAmount(cherryTomatoes, argument));
 		cart.addItemQuantity(cherryTomatoes, quantity);
 
+
 		receipt = teller.checksOutArticlesFrom(cart);
 		final double currentPrice = receipt.getTotalPrice();
 
 		assertThat(currentPrice).isEqualTo(expectedPrice, within(0.001));
-
+		assertThat(0.0).isEqualTo(cart.productQuantities.get(cherryTomatoes));
 
 	}
 
