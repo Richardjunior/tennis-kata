@@ -22,9 +22,10 @@ public class DiscountArticleGroupBundleTest {
 		SupermarketCatalog catalog = new FakeCatalog();
 		Teller teller = new Teller(catalog);
 		ShoppingCart cart = new ShoppingCart();
-		Map<Product, Double> itemsCurrent = new HashMap<>();
+		Map<Product, Double> itemsCurrent ;
 		itemsCurrent = cart.productQuantities;
 		Map<Product, Double> itemsExpect;
+		itemsExpect=cart.productQuantities;
 
 		Product toothbrush = new Product("toothbrush", ProductUnit.Each);
 		catalog.addProduct(toothbrush, 0.99D);
@@ -37,6 +38,8 @@ public class DiscountArticleGroupBundleTest {
 		teller.addSpecialOffer(new DiscountArticleGroupBundle(products, 10));
 		itemsCurrent.put(toothbrush, 0.99D);
 		itemsCurrent.put(toothpaste, 1.79D);
+		itemsExpect.put(toothbrush, 0.99D);
+		itemsExpect.put(toothpaste, 1.79D);
 		DiscountArticleGroupBundle discountArticleGroupBundleToTest = new DiscountArticleGroupBundle(products, 3D);
 
 		cart.addItemQuantity(toothbrush, 1);
@@ -46,8 +49,10 @@ public class DiscountArticleGroupBundleTest {
 		Receipt receipt = teller.checksOutArticlesFrom(cart);
 
 
-		assertThat(discountArticleGroupBundleToTest.DiscountCalculate(itemsCurrent, catalog)).isEqualTo(itemsCurrent);
+		//assertThat(discountArticleGroupBundleToTest.DiscountCalculate(itemsCurrent, catalog)).isEqualTo(itemsCurrent);
+		assertThat(1.99).isEqualTo(itemsCurrent.get(toothbrush));
+		assertThat(itemsCurrent.get(toothbrush)).isEqualTo(1.99);
 		assertThat(receipt.getTotalPrice()).isEqualTo(2.7, within(0.1));
-
+		assertThat(discountArticleGroupBundleToTest.DiscountCalculate(itemsCurrent , catalog)).isEqualTo(discountArticleGroupBundleToTest.DiscountCalculate(itemsExpect,catalog));
 	}
 }
