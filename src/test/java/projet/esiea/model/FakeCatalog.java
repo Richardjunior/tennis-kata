@@ -17,12 +17,6 @@ public class FakeCatalog implements SupermarketCatalog {
     }
 
 	@Override
-	public void removeProduct(String name) {
-		prices.remove(name);
-		products.remove(name);
-	}
-
-	@Override
     public double getUnitPrice(Product p) {
         return this.prices.get(p.getName());
     }
