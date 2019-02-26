@@ -29,7 +29,7 @@ public class DiscountArticleGroupBundleTest {
 		Teller teller = new Teller(catalog);
 		ShoppingCart cart = new ShoppingCart();
 		Map<Product, Double> itemsCurrent = new HashMap<>();
-		itemsCurrent=cart.productQuantities;
+		itemsCurrent = cart.productQuantities;
 		Map<Product, Double> itemsExpect;
 
 		Product toothbrush = new Product("toothbrush", ProductUnit.Each);
@@ -48,13 +48,11 @@ public class DiscountArticleGroupBundleTest {
 		cart.addItemQuantity(toothbrush, 1);
 		cart.addItemQuantity(toothpaste, 1);
 
-		itemsExpect = discountArticleGroupBundleToTest.DiscountCalculate(itemsCurrent, catalog);
-
 
 		Receipt receipt = teller.checksOutArticlesFrom(cart);
 
 
-		assertThat(itemsExpect).isEqualTo(itemsCurrent);
+		assertThat(discountArticleGroupBundleToTest.DiscountCalculate(itemsCurrent, catalog)).isEqualTo(itemsCurrent);
 		assertThat(receipt.getTotalPrice()).isEqualTo(2.7, within(0.1));
 
 	}
