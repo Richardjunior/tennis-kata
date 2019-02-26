@@ -19,34 +19,65 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 public class DiscountArticleGroupBundleTest {
 
 	/*
-	*
-	* */
+	 *
+	 * */
 
 	@Test
 	public void testNewDiscountArticleBundle() {
 
-		SupermarketCatalog catalog=new FakeCatalog();
-		Teller teller =new Teller(catalog);
-		ShoppingCart cart =new ShoppingCart();
+		SupermarketCatalog catalog = new FakeCatalog();
+		Teller teller = new Teller(catalog);
+		ShoppingCart cart = new ShoppingCart();
 
 		Product toothbrush = new Product("toothbrush", ProductUnit.Each);
-		catalog.addProduct(toothbrush , 0.99D);
+		catalog.addProduct(toothbrush, 0.99D);
 		Product toothpaste = new Product("toothpaste", ProductUnit.Each);
 		catalog.addProduct(toothpaste, 1.79D);
 
-		Map<Product , Integer> products = new HashMap<Product, Integer>();
-		products.put(toothbrush,2);
-		products.put(toothpaste,1);
+		Map<Product, Integer> products = new HashMap<Product, Integer>();
+		products.put(toothbrush, 2);
+		products.put(toothpaste, 1);
 //argument n'est pas pris en considération dans la cette classe, car nous avons calculé sans tenir compte de ce paramètre
-		teller.addSpecialOffer(new DiscountArticleGroupBundle(products ,10));
+		teller.addSpecialOffer(new DiscountArticleGroupBundle(products, 10));
 
-		cart.addItemQuantity(toothbrush,1);
-		cart.addItemQuantity(toothpaste,1);
+		cart.addItemQuantity(toothbrush, 1);
+		cart.addItemQuantity(toothpaste, 1);
 
-		Receipt receipt=teller.checksOutArticlesFrom(cart);
-		assertThat(receipt.getTotalPrice()).isEqualTo(2.7 , within(0.1));
-
+		Receipt receipt = teller.checksOutArticlesFrom(cart);
 
 
+	}
+
+	@Test
+	public void testApplyDiscount() {
+
+
+
+		SupermarketCatalog catalog = new FakeCatalog();
+		Teller teller = new Teller(catalog);
+		ShoppingCart cart = new ShoppingCart();
+		Map<Product, Double> itemsCurrent =  cart.productQuantities;
+		Map<Product, Double> itemsExpect;
+
+		Product toothbrush = new Product("toothbrush", ProductUnit.Each);
+		catalog.addProduct(toothbrush, 0.99D);
+		Product toothpaste = new Product("toothpaste", ProductUnit.Each);
+		catalog.addProduct(toothpaste, 1.79D);
+
+		Map<Product, Integer> products = new HashMap<Product, Integer>();
+		products.put(toothbrush, 2);
+		products.put(toothpaste, 1);
+		teller.addSpecialOffer(new DiscountArticleGroupBundle(products, 10));
+		itemsCurrent.put(toothbrush,0.99D);
+		itemsCurrent.put(toothpaste , 1.79D);
+		DiscountArticleGroupBundle discountArticleGroupBundleToTest=new DiscountArticleGroupBundle(products , 3D);
+
+		cart.addItemQuantity(toothbrush, 1);
+		cart.addItemQuantity(toothpaste, 1);
+
+		itemsExpect=discountArticleGroupBundleToTest.DiscountCalculate(itemsCurrent , catalog);
+		assertThat(itemsExpect).isEqualTo(itemsCurrent);
+		Receipt receipt = teller.checksOutArticlesFrom(cart);
+		assertThat(receipt.getTotalPrice()).isEqualTo(2.7, within(0.1));
 	}
 }

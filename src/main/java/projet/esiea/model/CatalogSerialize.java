@@ -22,7 +22,7 @@ public class CatalogSerialize extends StdSerializer<SupermarketCatalog> {
 		Map<String, Double> prices = catalog.getPrices();
 
 		jsonGenerator.writeStartObject();
-		jsonGenerator.writeStringField("Total",Integer.toString(products.size()));
+		jsonGenerator.writeStringField("Total", Integer.toString(products.size()));
 		jsonGenerator.writeObjectFieldStart("Products");
 
 
