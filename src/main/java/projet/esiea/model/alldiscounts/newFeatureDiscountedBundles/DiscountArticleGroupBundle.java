@@ -12,7 +12,7 @@ import java.util.function.BiFunction;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public abstract class DiscountArticleGroupBundle implements Offer {
+public  class DiscountArticleGroupBundle implements Offer {
 
 	private Discount discount = null;
 	public final double argument;
