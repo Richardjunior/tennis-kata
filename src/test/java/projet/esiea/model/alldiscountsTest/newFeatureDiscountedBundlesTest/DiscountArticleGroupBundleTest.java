@@ -28,7 +28,8 @@ public class DiscountArticleGroupBundleTest {
 		SupermarketCatalog catalog = new FakeCatalog();
 		Teller teller = new Teller(catalog);
 		ShoppingCart cart = new ShoppingCart();
-		Map<Product, Double> itemsCurrent = cart.productQuantities;
+		Map<Product, Double> itemsCurrent = new HashMap<>();
+		itemsCurrent=cart.productQuantities;
 		Map<Product, Double> itemsExpect;
 
 		Product toothbrush = new Product("toothbrush", ProductUnit.Each);
