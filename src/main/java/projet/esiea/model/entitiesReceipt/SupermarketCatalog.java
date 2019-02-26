@@ -9,6 +9,8 @@ public interface SupermarketCatalog {
 
     double getUnitPrice(Product product);
 
+	void removeProduct(String name);
+
 	Map<String, Product> getProducts();
 
 	Map<String, Double> getPrices();
