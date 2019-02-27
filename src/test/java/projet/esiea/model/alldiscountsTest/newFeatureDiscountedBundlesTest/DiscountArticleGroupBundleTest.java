@@ -32,7 +32,7 @@ public class DiscountArticleGroupBundleTest {
 		ShoppingCart cart = new ShoppingCart();
 		Product toothpaste = new Product("toothpaste", ProductUnit.Each);
 		Product toothbrush = new Product("toothbrush", ProductUnit.Each);
-
+		DiscountArticleGroupBundle discountArticleGroupBundleToTest = new DiscountArticleGroupBundle(products, 3D);
 
 		itemsCurrent = cart.productQuantities;
 		itemsExpect=cart.productQuantities;
@@ -55,13 +55,11 @@ public class DiscountArticleGroupBundleTest {
 		itemsExpect.put(toothpaste, 1.79D);
 
 
-		DiscountArticleGroupBundle discountArticleGroupBundleToTest = new DiscountArticleGroupBundle(products, 3D);
-
 
 		cart.addItemQuantity(toothbrush, 1);
 		cart.addItemQuantity(toothpaste, 1);
 
-		teller.addSpecialOffer(new DiscountArticleGroupBundle(products, 0.1));
+
 		Receipt receipt = teller.checksOutArticlesFrom(cart);
 		//BiFunction<Integer, Double, Double> discountOffer = (val1, val2) -> val1 * val2 * 4 * 0.1;
 
