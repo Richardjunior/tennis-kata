@@ -31,10 +31,10 @@ Lancement URI WebService
 --------
 ### Produit
 	
-* Afficher les produits : `/supermarket/products`	
-* Afficher le produit selectionné : `/supermarket/products/{name}`	
-* Ajouter un produit : `/supermarket/products/add`
-* Supprimer un produit selectionné : `/supermarket/products/remove/{name}`
+* Afficher les produits : `/market/products`	
+* Afficher le produit selectionné : `/market/products/{name}`	
+* Ajouter un produit : `/market/products/add`
+* Supprimer un produit selectionné : `/market/products/remove/{name}`
 	
 
 
