@@ -1,24 +1,19 @@
 package projet.esiea.model;
 
-import com.fasterxml.jackson.core.Version;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.module.SimpleModule;
-import com.fasterxml.jackson.databind.node.ArrayNode;
-import com.fasterxml.jackson.databind.node.JsonNodeFactory;
+
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.junit.jupiter.api.Test;
-import org.springframework.web.bind.annotation.PathVariable;
+
 import org.springframework.web.servlet.view.RedirectView;
-import projet.esiea.model.alldiscounts.newFeatureDiscountedBundles.DiscountArticleGroupBundle;
+
 import projet.esiea.model.entitiesMarket.Product;
 import projet.esiea.model.entitiesMarket.ProductUnit;
-import projet.esiea.model.entitiesReceipt.CartCatalog;
+
 import projet.esiea.model.entitiesReceipt.SupermarketCatalog;
 
-import java.util.Map;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static projet.esiea.model.JsonNodeFactoryTolls.getProduct;
+
 
 public class SpringBootWebApplicationTest {
 

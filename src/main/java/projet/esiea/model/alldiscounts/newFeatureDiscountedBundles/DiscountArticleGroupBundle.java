@@ -83,9 +83,7 @@ public  class DiscountArticleGroupBundle implements Offer {
 					discount = new Discount(product1, "New discount bundle offer", discountT);
 
 					break;
-				case -1:
 
-					break;
 			}
 
 		}
