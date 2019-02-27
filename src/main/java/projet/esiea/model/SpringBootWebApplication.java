@@ -68,4 +68,15 @@ public class SpringBootWebApplication {
 		return new RedirectView("/supermarket/products");
 	}
 
+	public static SupermarketCatalog getCatalog() {
+		return catalog;
+	}
+
+	public static ObjectMapper getObjectMapper() {
+		return objectMapper;
+	}
+
+	public static void setCatalog(SupermarketCatalog catalog) {
+		SpringBootWebApplication.catalog = catalog;
+	}
 }
