@@ -27,6 +27,11 @@ public class CartCatalog implements SupermarketCatalog {
 		this.products.put(product.getName(), product);
 		this.prices.put(product.getName(), price);
 	}
+	@Override
+	public void removeProduct(String name) {
+		products.remove(name);
+		prices.remove(name);
+	}
 
 	public double getUnitPrice(Product p) {
 		return this.prices.get(p.getName());

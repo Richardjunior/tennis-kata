@@ -27,6 +27,15 @@ Pour lancer les test, vous avez besoin de Maven.
 
 dans un terminal dans le répertoire source du projet.
 
+Lancement URI WebService
+--------
+### Produit
+	
+* Afficher les produits : `/supermarket/products`	
+* Afficher le produit selectionné : `/supermarket/products/{name}`	
+* Ajouter un produit : `/supermarket/products/add`
+* Supprimer un produit selectionné : `/supermarket/products/remove/{name}`
+	
 
 
 ### Dependance maven
