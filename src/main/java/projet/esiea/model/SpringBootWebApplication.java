@@ -65,7 +65,7 @@ public class SpringBootWebApplication {
 
 		catalog.removeProduct(name);
 
-		return new RedirectView("/supermarket/products");
+		return new RedirectView("/market/products");
 	}
 
 	public static SupermarketCatalog getCatalog() {
